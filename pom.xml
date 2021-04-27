@@ -17,6 +17,10 @@
 		<module>helloworld</module>
 		<module>chapter03</module>
 		<module>chapter01</module>
+		<module>pratice02</module>
+		<module>pratice03</module>
+		<module>pratice04</module>
+		<module>pratice05</module>
 	</modules>
 	
 	<build>
