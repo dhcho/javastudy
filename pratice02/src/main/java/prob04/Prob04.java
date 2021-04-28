@@ -11,7 +11,9 @@ public class Prob04 {
 	
 	public static char[] reverse(String str) {
 		/* 코드를 완성합니다 */
-		return null;
+		String string = new StringBuilder(str).reverse().toString();
+		char[] c1 = string.toCharArray();
+		return c1;
 	}
 
 	public static void printCharArray(char[] array){
