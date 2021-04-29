@@ -22,6 +22,7 @@
 		<module>pratice04</module>
 		<module>pratice05</module>
 		<module>pratice01</module>
+		<module>chapter04</module>
 	</modules>
 	
 	<build>
