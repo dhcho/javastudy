@@ -23,6 +23,7 @@
 		<module>pratice05</module>
 		<module>pratice01</module>
 		<module>chapter04</module>
+		<module>network</module>
 	</modules>
 	
 	<build>
