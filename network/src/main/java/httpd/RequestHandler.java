@@ -10,8 +10,13 @@ import java.net.Socket;
 import java.nio.file.Files;
 
 public class RequestHandler extends Thread {
-	private static final String DOCUMENT_ROOT = "./webapp";
+	// private static final String DOCUMENTROOT = "./webapp";
+	private static String DOCUMENTROOT = "";
 	private Socket socket;
+	
+	static {
+		DOCUMENTROOT = RequestHandler.class.getClass().getResource("/webapp").getPath();
+	}
 	
 	public RequestHandler( Socket socket ) {
 		this.socket = socket;
@@ -97,14 +102,14 @@ public class RequestHandler extends Thread {
 			url = "/index.html";
 		}
 		
-		File file = new File(DOCUMENT_ROOT + url);
+		File file = new File(DOCUMENTROOT + url);
 		if(file.exists() == false) {
 			// 응답 예시
 			// HTTP/1.1 404 File Not Found\r\n
 			// Content-Type:text/html; charset=utf-8\r\n
 			// \r\n
 			// HTML 에러 문서 (./webapp/error/404
-			response404Error(os, url, protocol);
+			// response404Error(os, url, protocol);
 			// System.out.println("!");
 			return;
 		}
@@ -124,7 +129,7 @@ public class RequestHandler extends Thread {
 	
 	public void response400Error(OutputStream os, String url, String protocol) throws IOException {	
 		url = "/error/400.html";
-		File file = new File(DOCUMENT_ROOT + url);
+		File file = new File(DOCUMENTROOT + url);
 		
 		byte[] body = Files.readAllBytes(file.toPath());
 		
@@ -136,7 +141,7 @@ public class RequestHandler extends Thread {
 	
 	public void response404Error(OutputStream os, String url, String protocol) throws IOException {		
 		url = "/error/404.html";
-		File file = new File(DOCUMENT_ROOT + url);
+		File file = new File(DOCUMENTROOT + url);
 		
 		byte[] body = Files.readAllBytes(file.toPath());
 		
